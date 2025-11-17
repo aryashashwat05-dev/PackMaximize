@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pack Maximize - Smart Shopping & Investment Optimization</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 300px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white shadow-lg z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-cube text-purple-600 text-2xl"></i>
+                    <span class="text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Pack Maximize</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-purple-600 transition">Home</a>
+                    <a href="#shopping" class="text-gray-700 hover:text-purple-600 transition">Shopping</a>
+                    <a href="#portfolio" class="text-gray-700 hover:text-purple-600 transition">Portfolio</a>
+                    <a href="#about" class="text-gray-700 hover:text-purple-600 transition">About</a>
+                </div>
+                <button id="mobileMenuBtn" class="md:hidden text-gray-700">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+            <div class="px-6 py-4 space-y-3">
+                <a href="#home" class="block text-gray-700 hover:text-purple-600">Home</a>
+                <a href="#shopping" class="block text-gray-700 hover:text-purple-600">Shopping</a>
+                <a href="#portfolio" class="block text-gray-700 hover:text-purple-600">Portfolio</a>
+                <a href="#about" class="block text-gray-700 hover:text-purple-600">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg min-h-screen flex items-center justify-center text-white pt-20">
+        <div class="container mx-auto px-6 text-center fade-in">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">
+                Optimize Your <span class="text-yellow-300">Choices</span>
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                Smart algorithms for shopping optimization and investment portfolio management
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#shopping" class="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold hover-scale inline-flex items-center justify-center">
+                    <i class="fas fa-shopping-cart mr-2"></i>
+                    Start Shopping
+                </a>
+                <a href="#portfolio" class="glass-effect text-white px-8 py-4 rounded-full font-semibold hover-scale inline-flex items-center justify-center">
+                    <i class="fas fa-chart-line mr-2"></i>
+                    Invest Smart
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Why Choose Pack Maximize?</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center hover-scale">
+                    <div class="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-brain text-purple-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Smart Algorithms</h3>
+                    <p class="text-gray-600">Advanced knapsack algorithms optimize your selections for maximum value</p>
+                </div>
+                <div class="text-center hover-scale">
+                    <div class="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-pie text-blue-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Visual Analytics</h3>
+                    <p class="text-gray-600">Interactive charts and graphs help you understand your optimization results</p>
+                </div>
+                <div class="text-center hover-scale">
+                    <div class="bg-green-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-mobile-alt text-green-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Mobile Friendly</h3>
+                    <p class="text-gray-600">Use our tools on any device, anywhere, anytime</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shopping Optimizer Section -->
+    <section id="shopping" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Shopping Optimizer</h2>
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Input Section -->
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <h3 class="text-2xl font-semibold mb-6 text-purple-600">
+                        <i class="fas fa-shopping-basket mr-2"></i>Add Your Items
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Bag Capacity (kg)</label>
+                            <input type="number" id="capacity" value="50" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                        </div>
+                        
+                        <div class="flex items-center space-x-2">
+                            <input type="checkbox" id="fractional" class="w-4 h-4 text-purple-600 rounded">
+                            <label for="fractional" class="text-sm font-medium text-gray-700">Allow fractional items</label>
+                        </div>
+                        
+                        <div class="border-t pt-4">
+                            <h4 class="font-medium text-gray-700 mb-3">Add New Item</h4>
+                            <div class="space-y-3">
+                                <input type="text" id="itemName" placeholder="Item name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500">
+                                <div class="grid grid-cols-2 gap-3">
+                                    <input type="number" id="itemWeight" placeholder="Weight (kg)" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500">
+                                    <input type="number" id="itemValue" placeholder="Value ($)" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500">
+                                </div>
+                                <button onclick="addItem()" class="w-full bg-purple-600 text-white py-2 rounded-lg hover:bg-purple-700 transition">
+                                    <i class="fas fa-plus mr-2"></i>Add Item
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <button onclick="optimizeShopping()" class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition font-semibold">
+                            <i class="fas fa-calculator mr-2"></i>Optimize Selection
+                        </button>
+                    </div>
+                    
+                    <!-- Items List -->
+                    <div class="mt-6">
+                        <h4 class="font-medium text-gray-700 mb-3">Items List</h4>
+                        <div id="itemsList" class="space-y-2 max-h-48 overflow-y-auto">
+                            <p class="text-gray-500 text-center py-4">No items added yet</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Results Section -->
+                <div class="space-y-6">
+                    <div class="bg-white rounded-2xl shadow-xl p-8">
+                        <h3 class="text-2xl font-semibold mb-6 text-green-600">
+                            <i class="fas fa-chart-pie mr-2"></i>Optimization Results
+                        </h3>
+                        <div id="shoppingResults" class="space-y-4">
+                            <div class="text-center text-gray-500 py-8">
+                                <i class="fas fa-box-open text-6xl mb-4"></i>
+                                <p>Add items and click optimize to see results</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl shadow-xl p-8">
+                        <h3 class="text-2xl font-semibold mb-6 text-blue-600">
+                            <i class="fas fa-chart-bar mr-2"></i>Capacity Usage
+                        </h3>
+                        <div class="chart-container">
+                            <canvas id="shoppingChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Optimizer Section -->
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">Portfolio Optimizer</h2>
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Input Section -->
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <h3 class="text-2xl font-semibold mb-6 text-green-600">
+                        <i class="fas fa-chart-line mr-2"></i>Investment Options
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Budget ($)</label>
+                            <input type="number" id="budget" value="10000" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                        </div>
+                        
+                        <div class="border-t pt-4">
+                            <h4 class="font-medium text-gray-700 mb-3">Add Stock</h4>
+                            <div class="space-y-3">
+                                <input type="text" id="stockName" placeholder="Stock name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                                <div class="grid grid-cols-2 gap-3">
+                                    <input type="number" id="stockCost" placeholder="Cost per share ($)" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                                    <input type="number" id="stockReturn" placeholder="Expected return ($)" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500">
+                                </div>
+                                <button onclick="addStock()" class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition">
+                                    <i class="fas fa-plus mr-2"></i>Add Stock
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <button onclick="optimizePortfolio()" class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition font-semibold">
+                            <i class="fas fa-calculator mr-2"></i>Optimize Portfolio
+                        </button>
+                    </div>
+                    
+                    <!-- Stocks List -->
+                    <div class="mt-6">
+                        <h4 class="font-medium text-gray-700 mb-3">Stocks List</h4>
+                        <div id="stocksList" class="space-y-2 max-h-48 overflow-y-auto">
+                            <p class="text-gray-500 text-center py-4">No stocks added yet</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Results Section -->
+                <div class="space-y-6">
+                    <div class="bg-white rounded-2xl shadow-xl p-8">
+                        <h3 class="text-2xl font-semibold mb-6 text-green-600">
+                            <i class="fas fa-trophy mr-2"></i>Portfolio Results
+                        </h3>
+                        <div id="portfolioResults" class="space-y-4">
+                            <div class="text-center text-gray-500 py-8">
+                                <i class="fas fa-chart-line text-6xl mb-4"></i>
+                                <p>Add stocks and click optimize to see results</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-2xl shadow-xl p-8">
+                        <h3 class="text-2xl font-semibold mb-6 text-purple-600">
+                            <i class="fas fa-chart-pie mr-2"></i>Portfolio Distribution
+                        </h3>
+                        <div class="chart-container">
+                            <canvas id="portfolioChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">About Pack Maximize</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-xl p-8">
+                    <p class="text-lg text-gray-700 mb-6">
+                        Pack Maximize is a powerful optimization tool that uses advanced algorithms to help you make smarter decisions. Whether you're shopping on a budget or managing an investment portfolio, our knapsack problem solver maximizes your value within given constraints.
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-8 mt-8">
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4 text-purple-600">Shopping Optimization</h3>
+                            <p class="text-gray-600">Add items with weights and values, set your capacity, and let our algorithm find the optimal combination for maximum value.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-4 text-green-600">Portfolio Management</h3>
+                            <p class="text-gray-600">Optimize your investment portfolio by selecting the best combination of stocks within your budget for maximum returns.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <i class="fas fa-cube text-purple-400 text-2xl"></i>
+                    <span class="text-2xl font-bold">Pack Maximize</span>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-purple-400 transition"><i class="fab fa-twitter text-xl"></i></a>
+                    <a href="#" class="hover:text-purple-400 transition"><i class="fab fa-linkedin text-xl"></i></a>
+                    <a href="#" class="hover:text-purple-400 transition"><i class="fab fa-github text-xl"></i></a>
+                </div>
+            </div>
+            <div class="text-center mt-8 text-gray-400">
+                <p>&copy; 2024 Pack Maximize. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Data storage
+        let items = [];
+        let stocks = [];
+        let shoppingChart = null;
+        let portfolioChart = null;
+
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Shopping functions
+        function addItem() {
+            const name = document.getElementById('itemName').value;
+            const weight = parseFloat(document.getElementById('itemWeight').value);
+            const value = parseFloat(document.getElementById('itemValue').value);
+            
+            if (name && weight && value) {
+                items.push({
+                    id: Date.now(),
+                    name,
+                    weight,
+                    value,
+                    ratio: value / weight
+                });
+                
+                document.getElementById('itemName').value = '';
+                document.getElementById('itemWeight').value = '';
+                document.getElementById('itemValue').value = '';
+                
+                updateItemsList();
+            }
+        }
+
+        function removeItem(id) {
+            items = items.filter(item => item.id !== id);
+            updateItemsList();
+        }
+
+        function updateItemsList() {
+            const list = document.getElementById('itemsList');
+            if (items.length === 0) {
+                list.innerHTML = '<p class="text-gray-500 text-center py-4">No items added yet</p>';
+            } else {
+                list.innerHTML = items.map(item => `
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                        <div>
+                            <p class="font-medium">${item.name}</p>
+                            <p class="text-sm text-gray-600">${item.weight}kg, $${item.value} (Ratio: ${item.ratio.toFixed(2)})</p>
+                        </div>
+                        <button onclick="removeItem(${item.id})" class="text-red-500 hover:text-red-700">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function optimizeShopping() {
+            const capacity = parseFloat(document.getElementById('capacity').value);
+            const isFractional = document.getElementById('fractional').checked;
+            
+            if (items.length === 0) return;
+            
+            // Sort by value/weight ratio
+            const sortedItems = [...items].sort((a, b) => b.ratio - a.ratio);
+            const optimized = [];
+            let remainingCapacity = capacity;
+            let totalWeight = 0;
+            let totalValue = 0;
+            
+            for (const item of sortedItems) {
+                if (remainingCapacity <= 0) break;
+                
+                if (isFractional) {
+                    const canTake = Math.min(item.weight, remainingCapacity);
+                    const fraction = canTake / item.weight;
+                    optimized.push({
+                        ...item,
+                        selectedWeight: canTake,
+                        selectedValue: item.value * fraction,
+                        fraction
+                    });
+                    remainingCapacity -= canTake;
+                    totalWeight += canTake;
+                    totalValue += item.value * fraction;
+                } else {
+                    if (item.weight <= remainingCapacity) {
+                        optimized.push({
+                            ...item,
+                            selectedWeight: item.weight,
+                            selectedValue: item.value,
+                            fraction: 1
+                        });
+                        remainingCapacity -= item.weight;
+                        totalWeight += item.weight;
+                        totalValue += item.value;
+                    }
+                }
+            }
+            
+            displayShoppingResults(optimized, totalWeight, totalValue, capacity);
+            updateShoppingChart(totalWeight, capacity, optimized);
+        }
+
+        function displayShoppingResults(optimized, totalWeight, totalValue, capacity) {
+            const results = document.getElementById('shoppingResults');
+            results.innerHTML = `
+                <div class="space-y-3">
+                    <div class="flex justify-between p-3 bg-blue-50 rounded-lg">
+                        <span class="font-medium">Total Weight:</span>
+                        <span class="font-bold text-blue-600">${totalWeight.toFixed(2)} kg</span>
+                    </div>
+                    <div class="flex justify-between p-3 bg-green-50 rounded-lg">
+                        <span class="font-medium">Total Value:</span>
+                        <span class="font-bold text-green-600">$${totalValue.toFixed(2)}</span>
+                    </div>
+                    <div class="flex justify-between p-3 bg-purple-50 rounded-lg">
+                        <span class="font-medium">Capacity Used:</span>
+                        <span class="font-bold text-purple-600">${((totalWeight / capacity) * 100).toFixed(1)}%</span>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h4 class="font-medium text-gray-700 mb-3">Selected Items</h4>
+                    <div class="space-y-2 max-h-48 overflow-y-auto">
+                        ${optimized.map(item => `
+                            <div class="p-3 bg-gray-50 rounded-lg">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <p class="font-medium">${item.name}</p>
+                                        <p class="text-sm text-gray-600">
+                                            Selected: ${item.selectedWeight.toFixed(2)}kg, $${item.selectedValue.toFixed(2)}
+                                        </p>
+                                    </div>
+                                    ${item.fraction < 1 ? `<span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">${Math.round(item.fraction * 100)}%</span>` : ''}
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function updateShoppingChart(totalWeight, capacity, optimized) {
+            const ctx = document.getElementById('shoppingChart').getContext('2d');
+            
+            if (shoppingChart) {
+                shoppingChart.destroy();
+            }
+            
+            shoppingChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Used Capacity', 'Remaining Capacity'],
+                    datasets: [{
+                        data: [totalWeight, capacity - totalWeight],
+                        backgroundColor: ['#8B5CF6', '#E5E7EB'],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        }
+
+        // Portfolio functions
+        function addStock() {
+            const name = document.getElementById('stockName').value;
+            const cost = parseFloat(document.getElementById('stockCost').value);
+            const returnValue = parseFloat(document.getElementById('stockReturn').value);
+            
+            if (name && cost && returnValue) {
+                stocks.push({
+                    id: Date.now(),
+                    name,
+                    weight: cost,
+                    value: returnValue,
+                    ratio: returnValue / cost
+                });
+                
+                document.getElementById('stockName').value = '';
+                document.getElementById('stockCost').value = '';
+                document.getElementById('stockReturn').value = '';
+                
+                updateStocksList();
+            }
+        }
+
+        function removeStock(id) {
+            stocks = stocks.filter(stock => stock.id !== id);
+            updateStocksList();
+        }
+
+        function updateStocksList() {
+            const list = document.getElementById('stocksList');
+            if (stocks.length === 0) {
+                list.innerHTML = '<p class="text-gray-500 text-center py-4">No stocks added yet</p>';
+            } else {
+                list.innerHTML = stocks.map(stock => `
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
+                        <div>
+                            <p class="font-medium">${stock.name}</p>
+                            <p class="text-sm text-gray-600">$${stock.weight}, Return: $${stock.value} (ROI: ${((stock.ratio - 1) * 100).toFixed(1)}%)</p>
+                        </div>
+                        <button onclick="removeStock(${stock.id})" class="text-red-500 hover:text-red-700">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function optimizePortfolio() {
+            const budget = parseFloat(document.getElementById('budget').value);
+            
+            if (stocks.length === 0) return;
+            
+            // Sort by ROI
+            const sortedStocks = [...stocks].sort((a, b) => b.ratio - a.ratio);
+            const optimized = [];
+            let remainingBudget = budget;
+            let totalCost = 0;
+            let totalReturn = 0;
+            
+            for (const stock of sortedStocks) {
+                if (remainingBudget <= 0) break;
+                
+                const canBuy = Math.min(stock.weight, remainingBudget);
+                const fraction = canBuy / stock.weight;
+                optimized.push({
+                    ...stock,
+                    selectedWeight: canBuy,
+                    selectedValue: stock.value * fraction,
+                    fraction
+                });
+                remainingBudget -= canBuy;
+                totalCost += canBuy;
+                totalReturn += stock.value * fraction;
+            }
+            
+            displayPortfolioResults(optimized, totalCost, totalReturn, budget);
+            updatePortfolioChart(optimized);
+        }
+
+        function displayPortfolioResults(optimized, totalCost, totalReturn, budget) {
+            const results = document.getElementById('portfolioResults');
+            const roi = totalCost > 0 ? ((totalReturn / totalCost - 1) * 100) : 0;
+            
+            results.innerHTML = `
+                <div class="space-y-3">
+                    <div class="flex justify-between p-3 bg-blue-50 rounded-lg">
+                        <span class="font-medium">Total Investment:</span>
+                        <span class="font-bold text-blue-600">$${totalCost.toFixed(2)}</span>
+                    </div>
+                    <div class="flex justify-between p-3 bg-green-50 rounded-lg">
+                        <span class="font-medium">Expected Return:</span>
+                        <span class="font-bold text-green-600">$${totalReturn.toFixed(2)}</span>
+                    </div>
+                    <div class="flex justify-between p-3 bg-purple-50 rounded-lg">
+                        <span class="font-medium">ROI:</span>
+                        <span class="font-bold text-purple-600">${roi.toFixed(1)}%</span>
+                    </div>
+                    <div class="flex justify-between p-3 bg-orange-50 rounded-lg">
+                        <span class="font-medium">Budget Used:</span>
+                        <span class="font-bold text-orange-600">${((totalCost / budget) * 100).toFixed(1)}%</span>
+                    </div>
+                </div>
+                <div class="mt-6">
+                    <h4 class="font-medium text-gray-700 mb-3">Selected Stocks</h4>
+                    <div class="space-y-2 max-h-48 overflow-y-auto">
+                        ${optimized.map(stock => `
+                            <div class="p-3 bg-gray-50 rounded-lg">
+                                <div class="flex justify-between items-start">
+                                    <div>
+                                        <p class="font-medium">${stock.name}</p>
+                                        <p class="text-sm text-gray-600">
+                                            Investment: $${stock.selectedWeight.toFixed(2)}, Return: $${stock.selectedValue.toFixed(2)}
+                                        </p>
+                                    </div>
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">${Math.round(stock.fraction * 100)}%</span>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function updatePortfolioChart(optimized) {
+            const ctx = document.getElementById('portfolioChart').getContext('2d');
+            
+            if (portfolioChart) {
+                portfolioChart.destroy();
+            }
+            
+            portfolioChart = new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: optimized.map(stock => stock.name),
+                    datasets: [{
+                        data: optimized.map(stock => stock.selectedWeight),
+                        backgroundColor: [
+                            '#8B5CF6',
+                            '#3B82F6',
+                            '#10B981',
+                            '#F59E0B',
+                            '#EF4444',
+                            '#EC4899'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
